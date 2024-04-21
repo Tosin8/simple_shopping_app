@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "157300508610",
+    "project_id": "simple-29484",
+    "storage_bucket": "simple-29484.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:157300508610:android:ab73148e51ed3cd05f785b",
+        "android_client_info": {
+          "package_name": "com.example.simple_shopping_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5AbviSp5oGaznuXNXksecJi4N0cU2w6E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
