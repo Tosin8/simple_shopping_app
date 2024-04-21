@@ -32,10 +32,10 @@ class AuthController extends GetxController{
        }
   }
 // create function for registration 
-void register(String email, password,) {
+void register(String email, password)  async {
 
   try{
-    auth.createUserWithEmailAndPassword(email: email, password: password);
+    await auth.createUserWithEmailAndPassword(email: email, password: password);
   }
   catch(e){
     Get.snackbar('About User', 'User Message', 

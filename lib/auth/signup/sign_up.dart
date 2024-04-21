@@ -123,7 +123,7 @@ TextFormField(
                     // Button
                     GestureDetector(
                       onTap: () {
-                        AuthController.instance.register(email, password)
+                        AuthController.instance.register(emailController.text.trim(), passwordController.text.trim());
                       },
                       child: Container(
                         height: 50,
