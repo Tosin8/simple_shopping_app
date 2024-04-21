@@ -52,7 +52,7 @@ android {
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
-        MultiDexEnable true
+        multiDexEnabled  true
     }
 
     buildTypes {
@@ -69,5 +69,5 @@ flutter {
 }
 
 dependencies {
-    implementation("androidx.multidex:multidex:2.0.1")
+    implementation "androidx.multidex:multidex:2.0.1"
 }
