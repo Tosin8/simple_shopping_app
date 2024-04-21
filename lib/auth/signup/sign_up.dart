@@ -17,6 +17,8 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     final hidePassword = true.obs;
@@ -46,7 +48,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 const Text('Kindly enter your credentials \nto create your account', style: TextStyle(color: Colors.grey),),
                 const SizedBox(height: 20,),
                 Form(
-                  key: GlobalKey<FormState>(),
+                  key: _formKey, 
                   child: Column(
                     children: [
                     TextFormField(
