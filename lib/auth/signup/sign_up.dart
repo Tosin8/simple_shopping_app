@@ -46,6 +46,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 const Text('Kindly enter your credentials \nto create your account', style: TextStyle(color: Colors.grey),),
                 const SizedBox(height: 20,),
                 Form(
+                  key: GlobalKey<FormState>(),
                   child: Column(
                     children: [
                     TextFormField(
@@ -109,7 +110,7 @@ TextFormField(
                           TextFormField(
                           validator: (value) => Validators.validatePassword( value),
                           controller: passwordController,
-                          obscureText: true,
+                        obscureText: hidePassword.value,
                                                textInputAction: TextInputAction.done,
                                                decoration: InputDecoration(
                           prefixIcon: const Icon(Iconsax.key),
