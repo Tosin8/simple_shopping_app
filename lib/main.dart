@@ -4,14 +4,13 @@ import 'package:get/get.dart';
 import 'package:simple_shopping_app/auth/controller/controller.dart';
 
 import 'auth/login/login.dart';
-import 'firebase_options.dart';
 
 Future<void>  main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
 // dependency injection of the auth controller. 
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform
+    //options: DefaultFirebaseOptions.currentPlatform
   ).then((value) => Get.put(AuthController()));
   runApp(const MyApp());
 }
