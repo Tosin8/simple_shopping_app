@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:simple_shopping_app/auth/controller/controller.dart';
 
@@ -18,6 +19,7 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
+    final hidePassword = true.obs;
     var emailController = TextEditingController();
     var passwordController = TextEditingController();
     var userNameController = TextEditingController();
@@ -103,22 +105,27 @@ TextFormField(
                     
           
           // Password
-                       TextFormField(
-                        validator: (value) => Validators.validatePassword( value),
-                        controller: passwordController,
-                        obscureText: true,
-                      textInputAction: TextInputAction.done,
-                      decoration: InputDecoration(
-                        prefixIcon: const Icon(Iconsax.key),
-                        prefixIconColor: Colors.grey,
-                        labelText: 'Password',
-                        suffixIcon: const Icon(Iconsax.eye_slash),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          
-                        ),
-                      )
-                    ),
+                       Obx(() =>
+                          TextFormField(
+                          validator: (value) => Validators.validatePassword( value),
+                          controller: passwordController,
+                          obscureText: true,
+                                               textInputAction: TextInputAction.done,
+                                               decoration: InputDecoration(
+                          prefixIcon: const Icon(Iconsax.key),
+                          prefixIconColor: Colors.grey,
+                          labelText: 'Password',
+                          suffixIcon: IconButton(
+                  onPressed: () => hidePassword.value = !hidePassword.value, 
+                 icon: Icon(hidePassword.value ? Iconsax.eye_slash : Iconsax.eye) , 
+              ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            
+                          ),
+                                               )
+                                             ),
+                       ),
                     const SizedBox(height: 40,),
                   
                 
