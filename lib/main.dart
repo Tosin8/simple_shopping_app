@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:simple_shopping_app/auth/signup/sign_up.dart';
 
+import 'auth/login/login.dart';
 import 'firebase_options.dart';
 import 'shop/category/category_screen.dart';
 
