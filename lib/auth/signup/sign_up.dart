@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:simple_shopping_app/auth/controller/controller.dart';
 
+import '../controller/validators.dart';
 import '../login/login.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -48,6 +49,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     TextFormField(
           
                       // Email
+                      validator: (value) => Validators.validateEmail(value),
                   controller: emailController,
                       textInputAction: TextInputAction.next,
                       keyboardType: TextInputType.emailAddress,
@@ -65,7 +67,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
  // user name
                      TextFormField(
-          
+          validator: (value) => Validators.validateEmptyText('User Name', value),
                      controller: userNameController,
                       textInputAction: TextInputAction.next,
                       keyboardType: TextInputType.name,  
@@ -83,7 +85,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                     // Phone Number
 TextFormField(
-          
+          validator: (value) => Validators.validatePhoneNumber(value),
               controller: phoneController,
                       keyboardType: TextInputType.phone,
                       textInputAction: TextInputAction.next,
@@ -102,6 +104,7 @@ TextFormField(
           
           // Password
                        TextFormField(
+                        validator: (value) => Validators.validatePassword( value),
                         controller: passwordController,
                         obscureText: true,
                       textInputAction: TextInputAction.done,
