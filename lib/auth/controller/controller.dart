@@ -32,7 +32,13 @@ class AuthController extends GetxController{
   }
 // create function for registration 
 void register(String email, password,) {
-auth.createUserWithEmailAndPassword(email: email, password: password); 
+
+  try{
+    auth.createUserWithEmailAndPassword(email: email, password: password);
+  }
+  catch(e){
+    
+  }
   }
   
 
