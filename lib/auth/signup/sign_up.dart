@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:simple_shopping_app/auth/controller/controller.dart';
 
 import '../login/login.dart';
 
@@ -16,6 +17,10 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
+    var emailController = TextEditingController();
+    var passwordController = TextEditingController();
+
+    
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -116,7 +121,7 @@ TextFormField(
                     // Button
                     GestureDetector(
                       onTap: () {
-                        
+                        AuthController.instance.register(email, password)
                       },
                       child: Container(
                         height: 50,
