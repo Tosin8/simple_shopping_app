@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../shop/home/home.dart';
@@ -37,7 +38,17 @@ void register(String email, password,) {
     auth.createUserWithEmailAndPassword(email: email, password: password);
   }
   catch(e){
-    
+    Get.snackbar('About User', 'User Message', 
+    snackPosition: SnackPosition.BOTTOM, 
+    duration: const Duration(seconds: 8),
+    borderRadius:10, 
+    backgroundColor: Colors.redAccent,
+    titleText: const Text('Account Creation failed', style: TextStyle(color: Colors.white),
+    ),
+    messageText: Text(e.toString(), 
+    style: const TextStyle(color: Colors.white),
+    )
+    ); 
   }
   }
   
