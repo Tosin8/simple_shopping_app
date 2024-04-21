@@ -19,8 +19,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     var emailController = TextEditingController();
     var passwordController = TextEditingController();
+    var userNameController = TextEditingController();
+   var phoneController = TextEditingController();
 
-    
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -47,7 +48,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     TextFormField(
           
                       // Email
-                  
+                  controller: emailController,
                       textInputAction: TextInputAction.next,
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
@@ -65,7 +66,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
  // user name
                      TextFormField(
           
-                     
+                     controller: userNameController,
                       textInputAction: TextInputAction.next,
                       keyboardType: TextInputType.name,  
                       decoration: InputDecoration(
@@ -83,7 +84,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     // Phone Number
 TextFormField(
           
-              
+              controller: phoneController,
                       keyboardType: TextInputType.phone,
                       textInputAction: TextInputAction.next,
                       decoration: InputDecoration(
@@ -101,6 +102,7 @@ TextFormField(
           
           // Password
                        TextFormField(
+                        controller: passwordController,
                         obscureText: true,
                       textInputAction: TextInputAction.done,
                       decoration: InputDecoration(
