@@ -30,6 +30,7 @@ environment:
 dependencies:
   cupertino_icons: ^1.0.6
   firebase_cloud_firestore: ^4.15.8
+  firebase_core: ^2.30.0
   flutter:
     sdk: flutter
   get: ^4.6.6
