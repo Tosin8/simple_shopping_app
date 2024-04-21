@@ -1,11 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:simple_shopping_app/auth/signup/sign_up.dart';
 
 import 'auth/login/login.dart';
 import 'firebase_options.dart';
-import 'shop/category/category_screen.dart';
 
 Future<void>  main() async {
   WidgetsFlutterBinding.ensureInitialized();
