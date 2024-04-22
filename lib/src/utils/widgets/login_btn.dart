@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 class LoginBtnTheme{
-  static final lightBtnTheme = ButtonThemeData(
+
+  // light button theme
+  static const lightLoginBtnTheme = ButtonThemeData(
     buttonColor: Colors.white,
+  ); 
+
+  // dark button theme 
+  static const darkLoginBtnTheme = ButtonThemeData(
+    buttonColor: Colors.black,
   ); 
 }

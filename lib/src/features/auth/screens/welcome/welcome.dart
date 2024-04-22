@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:simple_shopping_app/src/constants/colors.dart';
 import 'package:simple_shopping_app/src/constants/image_string.dart';
 import 'package:simple_shopping_app/src/constants/text_string.dart';
 
@@ -8,7 +9,11 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+var brightness = MediaQuery.of(context).platformBrightness;
+    final isDarkMode = brightness == Brightness.dark; 
+
     return Scaffold(
+      backgroundColor: isDarkMode ? Colors.black : Colors.white,
       body: Container(
         child: Column(
           children: [
