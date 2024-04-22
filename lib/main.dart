@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:simple_shopping_app/auth/controller/controller.dart';
 
 import 'auth/login/login.dart';
-import 'src/theme.dart';
+import 'src/utils/theme.dart';
 
 Future<void>  main() async {
   WidgetsFlutterBinding.ensureInitialized();
