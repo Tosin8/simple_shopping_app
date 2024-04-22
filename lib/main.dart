@@ -31,6 +31,7 @@ class MyApp extends StatelessWidget {
   
       ),
       darkTheme: ThemeData(brightness: Brightness.dark, useMaterial3: true),
+     // themeMode: ThemeMode.dark,-- determing the theme of the app. 
       home: const LoginScreen()
     );
   }
