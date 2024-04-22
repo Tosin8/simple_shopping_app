@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:simple_shopping_app/src/constants/image_string.dart';
+import 'package:simple_shopping_app/src/constants/text_string.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -11,6 +13,7 @@ class WelcomeScreen extends StatelessWidget {
         child: Column(
           children: [
 
+const SizedBox(height: 50,), 
             Container(
               height: MediaQuery.of(context).size.height * 0.5,
               width: MediaQuery.of(context).size.width,
@@ -19,8 +22,48 @@ class WelcomeScreen extends StatelessWidget {
                   image: AssetImage(welcomeImage),
                 )
               ),
-            ) 
-            Text(data)
+            ) ,
+            const SizedBox(height: 50,), 
+
+          Text(tWelcomeTitle,
+            style: Theme.of(context).textTheme.displaySmall!.copyWith(
+              fontWeight: FontWeight.bold, fontSize: 18
+            ),
+            ), 
+            const SizedBox(height: 10,),
+            const Text(tWelcomeSubTitle, style: TextStyle(fontSize: 14, fontWeight: FontWeight.w300, ),),
+            const SizedBox(height: 60,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+               GestureDetector( 
+                 onTap: () {},
+                 child: Container(
+                  height: 50, width: 120,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: Colors.blue, 
+                  ),
+                  child: const Align(
+                    child: Text('LOGIN', style: TextStyle(color: Colors.white),)),
+                 ),
+               ), 
+               SizedBox(width: 20,), 
+
+               GestureDetector( 
+                 onTap: () {},
+                 child: Container(
+                  height: 50, width: 120,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                border: Border.all(color: Colors.red)
+                  ),
+                  child: const Align(
+                    child: Text('SIGN UP', style: TextStyle(color: Colors.black),)),
+                 ),
+               )
+              ],
+            )
           ],
         )
       ),
