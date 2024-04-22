@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:simple_shopping_app/auth/controller/controller.dart';
 
 import 'auth/login/login.dart';
+import 'src/theme.dart';
 
 Future<void>  main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,14 +25,9 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        brightness: Brightness.light,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-  
-      ),
-      darkTheme: ThemeData(brightness: Brightness.dark, useMaterial3: true),
-     // themeMode: ThemeMode.dark,-- determing the theme of the app. 
+      theme: AppTheme.lightTheme, 
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.system,
       home: const LoginScreen()
     );
   }
