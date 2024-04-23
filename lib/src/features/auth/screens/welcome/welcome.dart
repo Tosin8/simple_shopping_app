@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:simple_shopping_app/src/constants/colors.dart';
+import 'package:get/get.dart';
 import 'package:simple_shopping_app/src/constants/image_string.dart';
 import 'package:simple_shopping_app/src/constants/text_string.dart';
+import 'package:simple_shopping_app/src/features/auth/screens/signup/sign_up.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -41,6 +42,8 @@ const SizedBox(height: 50,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+
+                // LOGIN
                GestureDetector( 
                  onTap: () {},
                  child: Container(
@@ -53,10 +56,13 @@ const SizedBox(height: 50,),
                     child: Text('LOGIN', style: TextStyle(color: Colors.white),)),
                  ),
                ), 
-               SizedBox(width: 20,), 
+               const SizedBox(width: 20,), 
 
+// SIGN UP
                GestureDetector( 
-                 onTap: () {},
+                 onTap: () {
+                Get.to(() =>SignUpScreen); 
+                 },
                  child: Container(
                   height: 50, width: 120,
                   decoration: BoxDecoration(

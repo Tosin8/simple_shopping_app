@@ -6,7 +6,7 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:simple_shopping_app/auth/controller/controller.dart';
 
-import '../controller/validators.dart';
+import '../../../../../auth/controller/validators.dart';
 import '../login/login.dart';
 
 class SignUpScreen extends StatefulWidget {

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../shop/home/home.dart';
-import '../login/login.dart';
+import '../../src/features/auth/screens/login/login.dart';
 
 class AuthController extends GetxController{
 
