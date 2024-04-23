@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:simple_shopping_app/auth/controller/controller.dart';
+import 'package:simple_shopping_app/src/features/auth/controllers/signup_controller.dart';
 
 import '../../../../../auth/controller/validators.dart';
 import '../login/login.dart';
@@ -15,25 +16,20 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
 
-  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(SignUpController());
+    
+  final _formKey = GlobalKey<FormState>();
     final hidePassword = true.obs;
-    var emailController = TextEditingController();
-    var passwordController = TextEditingController();
-    var userNameController = TextEditingController();
-   var phoneController = TextEditingController();
-
-    double h = MediaQuery.of(context).size.height;
-    double w = MediaQuery.of(context).size.width;
+   
     return Scaffold(
       
       appBar: AppBar(
         automaticallyImplyLeading: false,
       ),
       body: Container(
-        height: h,
-        width: w,
+        
         child:  SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(15.0),
@@ -48,7 +44,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 const Text('Kindly enter your credentials \nto create your account', 
                 style: TextStyle(color: Colors.grey),),
                 const SizedBox(height: 20,),
-                
+
                 Form(
                   key: _formKey, 
                   child: Column(
@@ -57,7 +53,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           
                       // Email
                       validator: (value) => Validators.validateEmail(value),
-                  controller: emailController,
+                 controller: controller.email,
                       textInputAction: TextInputAction.next,
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
@@ -75,7 +71,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
  // user name
                      TextFormField(
           validator: (value) => Validators.validateEmptyText('User Name', value),
-                     controller: userNameController,
+                    controller: controller.userName, 
                       textInputAction: TextInputAction.next,
                       keyboardType: TextInputType.name,  
                       decoration: InputDecoration(
@@ -93,7 +89,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     // Phone Number
 TextFormField(
           validator: (value) => Validators.validatePhoneNumber(value),
-              controller: phoneController,
+            controller: controller.phone, 
                       keyboardType: TextInputType.phone,
                       textInputAction: TextInputAction.next,
                       decoration: InputDecoration(
@@ -112,8 +108,9 @@ TextFormField(
           // Password
                        Obx(() =>
                           TextFormField(
+                            controller: controller.password,
                           validator: (value) => Validators.validatePassword( value),
-                          controller: passwordController,
+                      
                         obscureText: hidePassword.value,
                                                textInputAction: TextInputAction.done,
                                                decoration: InputDecoration(
@@ -138,7 +135,9 @@ TextFormField(
                     // Button
                     GestureDetector(
                       onTap: () {
-                        AuthController.instance.register(emailController.text.trim(), passwordController.text.trim());
+                        if(_formKey.currentState!.validate()){
+                          SignUpController.instance.registerUser(controller.email.text.trim(), controller.password.text.trim());
+                        }
                       },
                       child: Container(
                         height: 50,
