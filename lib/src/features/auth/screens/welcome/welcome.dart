@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:simple_shopping_app/src/constants/image_string.dart';
 import 'package:simple_shopping_app/src/constants/text_string.dart';
+import 'package:simple_shopping_app/src/features/auth/screens/login/login.dart';
 import 'package:simple_shopping_app/src/features/auth/screens/signup/sign_up.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -45,7 +46,9 @@ const SizedBox(height: 50,),
 
                 // LOGIN
                GestureDetector( 
-                 onTap: () {},
+                 onTap: () {
+                    Get.to(() =>const LoginScreen()); 
+                 },
                  child: Container(
                   height: 50, width: 120,
                   decoration: BoxDecoration(
