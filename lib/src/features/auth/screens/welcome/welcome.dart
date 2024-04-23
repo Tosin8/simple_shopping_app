@@ -64,7 +64,7 @@ const SizedBox(height: 50,),
 // SIGN UP
                GestureDetector( 
                  onTap: () {
-                Get.to(() =>SignUpScreen); 
+                Get.to(() =>const SignUpScreen()); 
                  },
                  child: Container(
                   height: 50, width: 120,
