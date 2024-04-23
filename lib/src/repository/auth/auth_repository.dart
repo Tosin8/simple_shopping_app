@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
 import 'package:simple_shopping_app/src/features/auth/screens/home/home.dart';
+import 'package:simple_shopping_app/src/repository/auth/exceptions/signup_email_pwd_failure.dart';
 
 import '../../features/auth/screens/welcome/welcome.dart';
 
@@ -30,8 +31,14 @@ class AuthenticationRepository extends GetxController{
     try{
     await _auth.createUserWithEmailAndPassword(email: email, password: password);
   } on FirebaseAuthException catch(e){
-    
-  } catch (_) {}
+    final ex = SignUpWithEmailAndPasswordFailure.code(e.code); 
+    print('FIREBASE AUTH EXCEPTION - ${ex.message}');
+    throw ex;
+  } catch (_) {
+    const ex = SignUpWithEmailAndPasswordFailure();
+    print('EXCEPTION - ${ex.message}');
+    throw ex; 
+  }
 }
 
 // to login in
