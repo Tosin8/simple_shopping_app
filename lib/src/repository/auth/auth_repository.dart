@@ -21,9 +21,13 @@ class AuthenticationRepository extends GetxController{
     ever(firebaseUser, _setInitialScreen);
   }
 
+// Setting Initial Screen
+
   _setInitialScreen(User? user){
     user == null ? Get.offAll(() => const WelcomeScreen()) : Get.offAll(() => const HomeScreen());
   }
+
+/* ---------- Email & Pwd sign in ---------------*/
 
 // to create an account
   Future<void> createUserWithEmailAndPassword(String email, String password) async{
@@ -53,5 +57,11 @@ class AuthenticationRepository extends GetxController{
   } catch (_) {}
 }
 
+// for verification
+Future<void> sendEmailVerification() async {
+  _auth.currentUser.sendEmailVerification(); 
+}
+
+// to log out
 Future<void> logout() async => await _auth.signOut();
 }
