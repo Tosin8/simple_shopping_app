@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:simple_shopping_app/src/constants/sizes.dart';
 
+import '../../controllers/mail_verification.dart';
+
 class MailVerification extends StatelessWidget {
   const MailVerification({super.key});
 
