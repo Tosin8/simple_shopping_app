@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:simple_shopping_app/src/features/auth/screens/home/home.dart';
+import 'package:simple_shopping_app/src/features/auth/screens/verification/send_verify.dart';
 import 'package:simple_shopping_app/src/repository/auth/exceptions/signup_email_pwd_failure.dart';
 
 import '../../features/auth/screens/welcome/welcome.dart';
@@ -23,8 +24,8 @@ class AuthenticationRepository extends GetxController{
 
 // Setting Initial Screen
 
-  _setInitialScreen(User? user){
-    user == null ? Get.offAll(() => const WelcomeScreen()) : Get.offAll(() => const HomeScreen());
+  _setInitialScreen(User? user) async {
+    user == null ? Get.offAll(() => const WelcomeScreen()) : user.emailVerified ? Get.offAll(() => const HomeScreen()) : Get.offAll(() => MailVerification());
   }
 
 /* ---------- Email & Pwd sign in ---------------*/
