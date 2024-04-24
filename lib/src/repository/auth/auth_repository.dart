@@ -5,6 +5,7 @@ import 'package:simple_shopping_app/src/features/auth/screens/home/home.dart';
 import 'package:simple_shopping_app/src/repository/auth/exceptions/signup_email_pwd_failure.dart';
 
 import '../../features/auth/screens/welcome/welcome.dart';
+import 'exceptions/SExceptions.dart';
 
 class AuthenticationRepository extends GetxController{
 
@@ -59,7 +60,16 @@ class AuthenticationRepository extends GetxController{
 
 // for verification
 Future<void> sendEmailVerification() async {
-  _auth.currentUser.sendEmailVerification(); 
+  try{
+  _auth.currentUser?.sendEmailVerification(); 
+}on FirebaseAuthException catch (e) {
+  final ex = SExceptions.fromCode(e.code); 
+  throw ex.message; 
+} catch (_) {
+  const ex = SExceptions(); 
+  throw ex.message; 
+}
+
 }
 
 // to log out
