@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:simple_shopping_app/auth/controller/controller.dart';
 import 'package:simple_shopping_app/src/features/auth/controllers/signup_controller.dart';
 
 import '../../../../../auth/controller/validators.dart';

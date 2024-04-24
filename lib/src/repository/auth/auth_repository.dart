@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
 import 'package:simple_shopping_app/src/features/auth/screens/home/home.dart';
 import 'package:simple_shopping_app/src/repository/auth/exceptions/signup_email_pwd_failure.dart';
@@ -61,7 +60,7 @@ class AuthenticationRepository extends GetxController{
 // for verification
 Future<void> sendEmailVerification() async {
   try{
-  _auth.currentUser?.sendEmailVerification(); 
+  await _auth.currentUser?.sendEmailVerification(); 
 }on FirebaseAuthException catch (e) {
   final ex = SExceptions.fromCode(e.code); 
   throw ex.message; 
