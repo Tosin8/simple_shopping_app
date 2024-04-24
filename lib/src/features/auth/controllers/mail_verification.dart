@@ -6,6 +6,7 @@ class MailVerificationController extends GetxController {
   void onInit() {
     super.onInit(); 
     sendVerificationEmail(); 
+    setTimerForAutoRedirect(); 
   }
 
   Future<void> sendVerificationEmail() async {
