@@ -1,9 +1,14 @@
+import 'dart:async';
+
 import 'package:get/get.dart';
 import 'package:simple_shopping_app/src/repository/auth/auth_repository.dart';
 
 import '../../../utils/helper.dart';
 
 class MailVerificationController extends GetxController {
+  late Timer _timer; 
+
+  
   @override 
   void onInit() {
     super.onInit(); 
