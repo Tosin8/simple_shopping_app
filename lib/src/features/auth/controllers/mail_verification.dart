@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:simple_shopping_app/src/repository/auth/auth_repository.dart';
 
+import '../../../utils/helper.dart';
+
 class MailVerificationController extends GetxController {
   @override 
   void onInit() {
@@ -14,7 +16,7 @@ class MailVerificationController extends GetxController {
     try {
 await AuthenticationRepository.instance.sendEmailVerification(); 
     } catch(e) {
-      Helper.errorSnackBar(title: 'Oh Snap', message: e.toString()); 
+      Helpers.errorSnackBar(title: 'Oh Snap', message: e.toString()); 
     }
 
     await AuthenticationRepository.instance.sendEmailVerification(); 
