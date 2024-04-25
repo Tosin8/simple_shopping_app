@@ -30,14 +30,16 @@ await AuthenticationRepository.instance.sendEmailVerification();
   } 
 
   void setTimerForAutoRedirect(){
-    _timer = Timer.periodic(Duration(seconds: 3), 
-    (timer) { }); 
+    _timer = Timer.periodic(const Duration(seconds: 3), 
+    (timer) { 
     FirebaseAuth.instance.currentUser?.reload();
     final user = FirebaseAuth.instance.currentUser; 
     if(user!.emailVerified){
-      _timer.cancel(); 
+      timer.cancel(); 
     }
   } 
+  );
+  }
 
   void manuallyCheckEmailVerificationStatus(){}
 }
