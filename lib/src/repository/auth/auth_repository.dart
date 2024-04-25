@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:simple_shopping_app/src/features/auth/screens/home/home.dart';
@@ -19,12 +21,13 @@ class AuthenticationRepository extends GetxController{
   void onReady(){
     firebaseUser = Rx<User?>(_auth.currentUser);
     firebaseUser.bindStream(_auth.userChanges()); 
-    ever(firebaseUser, _setInitialScreen);
+    setInitialScreen(_firebaseUser.value); 
+   // ever(firebaseUser, _setInitialScreen);
   }
 
 // Setting Initial Screen
 
-  _setInitialScreen(User? user) async {
+  setInitialScreen(User? user) async {
     user == null ? Get.offAll(() => const WelcomeScreen()) : user.emailVerified ? Get.offAll(() => const HomeScreen()) : Get.offAll(() => MailVerification());
   }
 
