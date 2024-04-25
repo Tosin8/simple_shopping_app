@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_cloud_firestore/firebase_cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:simple_shopping_app/src/repository/auth/auth_repository.dart';
 
@@ -27,7 +29,15 @@ await AuthenticationRepository.instance.sendEmailVerification();
     await AuthenticationRepository.instance.sendEmailVerification(); 
   } 
 
-  void setTimerForAutoRedirect(){} 
+  void setTimerForAutoRedirect(){
+    _timer = Timer.periodic(Duration(seconds: 3), 
+    (timer) { }); 
+    FirebaseAuth.instance.currentUser?.reload();
+    final user = FirebaseAuth.instance.currentUser; 
+    if(user!.emailVerified){
+      _timer.cancel(); 
+    }
+  } 
 
   void manuallyCheckEmailVerificationStatus(){}
 }
