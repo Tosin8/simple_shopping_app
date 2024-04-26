@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_cloud_firestore/firebase_cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:simple_shopping_app/src/repository/auth/auth_repository.dart';
 
