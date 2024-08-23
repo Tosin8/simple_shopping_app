@@ -28,7 +28,7 @@ class AuthenticationRepository extends GetxController{
 // Setting Initial Screen
 
   setInitialScreen(User? user) async {
-    user == null ? Get.offAll(() => const WelcomeScreen()) : user.emailVerified ? Get.offAll(() => const HomeScreen()) : Get.offAll(() => MailVerification());
+    user == null ? Get.offAll(() => const WelcomeScreen()) : user.emailVerified ? Get.offAll(() => const HomeScreen()) : Get.offAll(() => const MailVerification());
   }
 
 /* ---------- Email & Pwd sign in ---------------*/
@@ -56,8 +56,6 @@ class AuthenticationRepository extends GetxController{
 
     try{
     await _auth.signInWithEmailAndPassword(email: email, password: password);
-  } on FirebaseAuthException catch(e){
-    
   } catch (_) {}
 }
 
