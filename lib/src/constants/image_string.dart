@@ -1,1 +1,0 @@
-const String welcomeImage = 'assets/gifs/undraw.png'; 
